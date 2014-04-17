@@ -10,3 +10,8 @@ Text Domain: raygun-for-wordpress
 Domain Path: /languages
 */
 
+add_action('wp_head', 'raygun4js', 00);
+add_action('admin_head', 'raygun4js', 00);
+function raygun4js() {
+    printf('<script src="%sraygun4js.js"></script><script>Raygun.init("%s");</script>'."\n", plugin_dir_url(__FILE__), RAYGUN_KEY);
+}
